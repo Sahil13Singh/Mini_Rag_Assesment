@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="ri-robot-2-line logo-icon"></i>
+                <span>Gemini RAG</span>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="section-title">Knowledge Base</div>
+                <div class="upload-card">
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="switchTab('text')"><i class="ri-text"></i> Text</button>
+                        <button class="tab-btn" onclick="switchTab('file')"><i class="ri-file-upload-line"></i> File</button>
+                    </div>
+
+                    <div id="textInputSection" class="input-panel">
+                        <textarea id="dataInput" placeholder="Paste context here to train the AI..."></textarea>
+                    </div>
+
+                    <div id="fileInputSection" class="input-panel hidden">
+                        <div class="file-drop-area" onclick="document.getElementById('fileInput').click()">
+                            <i class="ri-upload-cloud-2-line"></i>
+                            <p>Click to upload PDF/DOCX</p>
+                            <input type="file" id="fileInput" accept=".txt,.pdf,.docx" hidden>
+                            <span id="fileName" class="file-name"></span>
+                        </div>
+                    </div>
+
+                    <button id="indexBtn" class="action-btn" onclick="handleUpload()">
+                        <span class="btn-text">Add to Knowledge</span>
+                        <div class="spinner"></div>
+                    </button>
+                    <div id="ingestStatus" class="status-msg"></div>
+                </div>
+
+                <div class="info-box">
+                    <i class="ri-information-line"></i>
+                    <p>Content is indexed into Pinecone Serverless.</p>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="badge"><div class="dot"></div> Gemini 2.5 Flash</div>
+            </div>
+        </aside>
+
+        <main class="chat-container">
+            <div id="chatHistory" class="chat-history">
+                <div class="message ai-message">
+                    <div class="avatar"><i class="ri-sparkling-fill"></i></div>
+                    <div class="message-content">
+                        Hello! I'm your RAG assistant. Upload some documents or text in the sidebar, and then ask me anything about them.
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="queryInput" placeholder="Message RAG..." rows="1" onkeypress="handleEnter(event)"></textarea>
+                    <button id="queryBtn" onclick="askQuestion()"><i class="ri-arrow-up-line"></i></button>
+                </div>
+                <div class="footer-text">AI can make mistakes. Check important info.</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+# --- Security (CRITICAL) ---
+.env
+.env.local
+config.py
+secrets.py
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# --- macOS (Since you are on a Mac) ---
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.swp
+
+# --- Flask & Web ---
+instance/
+.webassets-cache
+
+# --- Logs & Databases ---
+*.log
+*.sqlite3
+
+# --- Temporary Files ---
+tmp/
+temp/

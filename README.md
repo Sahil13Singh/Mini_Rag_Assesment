@@ -1,5 +1,5 @@
 🚀 Live Demo
-Live App: https://mini-rag-assesment.onrender.com
+ https://mini-rag-assesment.onrender.com
 
 📖 Project Overview
 This is a production-minded RAG (Retrieval-Augmented Generation) system built to answer questions based on uploaded documents (PDF, DOCX, TXT) or raw text. It features a full Ingestion Pipeline and a Retrieval Pipeline with semantic reranking to ensure high precision.
